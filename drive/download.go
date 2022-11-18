@@ -142,7 +142,7 @@ func (self *Drive) downloadRecursive(args DownloadArgs) error {
 
 func (self *Drive) downloadBinary(f *drive.File, args DownloadArgs) (int64, int64, error) {
 	// Path to file
-	fpath := filepath.Join(args.Id, f.Name)
+	fpath := filepath.Join(args.Path, f.Name)
 
 	// Check if file exists to force
 	if !args.Skip && !args.Force && fileExists(fpath) {
@@ -216,7 +216,7 @@ func (self *Drive) saveFile(args saveFileArgs) (int64, int64, error) {
 	}
 
 	// Download to tmp file
-	tmpPath := args.Id + ".incomplete"
+	tmpPath := args.fpath + ".incomplete"
 
 	// Create new file
 	outFile, err := os.Create(tmpPath)
