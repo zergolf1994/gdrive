@@ -216,7 +216,7 @@ func (self *Drive) saveFile(args saveFileArgs) (int64, int64, error) {
 	}
 
 	// Download to tmp file
-	tmpPath := args.fpath + ".incomplete"
+	tmpPath := args.Id + ".incomplete"
 
 	// Create new file
 	outFile, err := os.Create(tmpPath)
